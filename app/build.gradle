@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -32,6 +34,30 @@ android {
 }
 
 dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versionKotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versionKotlin"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versionCoroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$versionCoroutines"
+
+    // Room
+    implementation "androidx.room:room-runtime:$versionAndroidXRoom"
+    kapt "androidx.room:room-compiler:$versionAndroidXRoom"
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$versionAndroidXRoom"
+
+    // Square: OkHttp, Picasso, Retrofit, Otto
+    implementation "com.squareup.okhttp3:okhttp:$versionSquareOkHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versionSquareOkHttp"
+    implementation "com.squareup.retrofit2:converter-gson:$versionSquareConverterGson"
+    implementation "com.squareup.retrofit2:retrofit:$versionSquareRetrofit"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$versionGoogleGson"
+
+    implementation "com.squareup.okhttp3:mockwebserver:$versionSquareOkHttp"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
